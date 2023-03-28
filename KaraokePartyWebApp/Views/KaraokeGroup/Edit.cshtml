@@ -1,0 +1,33 @@
+﻿@using KaraokePartyWebApp.Data.Enum
+@model KaraokeGroup
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form method="post" asp-action="Edit">
+  <div class="form-group">
+    <label asp-for="Name">Nome do Grupo</label>
+    <input asp-for="Name" class="form-control" placeholder="Digite o Nome">
+    <span asp-validation-for="Name" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="Description">Descrição</label>
+    <input asp-for="Description" class="form-control" placeholder="Digite a Descrição">
+    <span asp-validation-for="Description" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="Image">Imagem</label>
+    <input asp-for="Image" class="form-control" placeholder="Imagem">
+    <span asp-validation-for="Image" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="Category">Categoria</label>
+    <select asp-for="Category" asp-items="@Html.GetEnumSelectList<Category>()">
+        <option>--Selecione--</option>
+    </select>
+    <span asp-validation-for="Category" class="text-danger"></span>
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
